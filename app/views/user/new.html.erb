@@ -1,0 +1,5 @@
+<%= form_for @user, url: {action: "create"} do |f| %>
+    <%= f.text :username %>
+    <%= f.text :email %>
+    <%= f.password :password %>
+<% end %>
