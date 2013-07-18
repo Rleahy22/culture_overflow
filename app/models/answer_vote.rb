@@ -1,3 +1,3 @@
 class AnswerVote < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :answer_id, :user_id
 end
