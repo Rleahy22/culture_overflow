@@ -1,4 +1,4 @@
-class CreateQuestionsVotes < ActiveRecord::Migration
+class CreateQuestionVotes < ActiveRecord::Migration
   def change
     create_table :questions_votes do |t|
       t.integer :user_id
