@@ -26,6 +26,7 @@ class QuestionController < ApplicationController
   
   def destroy
     @question.destroy
+    redirect_to root_url
   end
 
   private
