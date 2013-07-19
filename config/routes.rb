@@ -1,5 +1,5 @@
 CultureOverflow::Application.routes.draw do
-  root to: 'questions#index'
+  root to: 'question#index'
   
   resources :users, except: :index
 
