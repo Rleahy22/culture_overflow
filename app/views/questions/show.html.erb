@@ -1,5 +1,8 @@
+<%= link_to "Update This Question", edit_question_path(@question.id) %>
+
 <h1><%= @question.title %></h1>
 
 <h2>User: <%= @question.author.username %></h2>
 
 <p><%= @question.content %></p>
+
