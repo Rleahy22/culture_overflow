@@ -7,14 +7,20 @@
 <h2>User: <%= @question.author.username %></h2>
 
 <p><%= @question.content %></p>
-
+<%= form_for @comment do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
 <ul>
-<%= @question.comments.each do |comment| %>
-
+<% @question.answers.each do |answer| %>
   <li>
-    <h2><%= comment.author %></h2>
-
+    <h3><%= answer.author.username %> writes:</h3>
+    <p><%= answer.content %></p>
+    <% answer.comments.each do |comment| %>
+      <h4><%= comment.author.username %> responds:</h4>
+      <p><%= comment.content %></p>
+    <% end %>
   </li>
-
 <% end %>
 </ul>
