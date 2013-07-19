@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  # before_filter current_user, only: [:edit, :update, :destroy]
+  before_filter :current_user, only: [:edit, :update, :destroy]
 
   def index
     @questions = Question.all
@@ -34,6 +34,7 @@ class QuestionsController < ApplicationController
   end
   
   def destroy
+    @question = Question.find(params[:id])
     @question.destroy
     redirect_to root_url
   end
