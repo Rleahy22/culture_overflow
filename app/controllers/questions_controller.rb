@@ -1,4 +1,4 @@
-class QuestionController < ApplicationController
+class QuestionsController < ApplicationController
   before_filter :check_login, only: [:edit, :update, :destroy]
 
   def index
