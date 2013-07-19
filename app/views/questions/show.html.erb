@@ -8,3 +8,13 @@
 
 <p><%= @question.content %></p>
 
+<ul>
+<%= @question.comments.each do |comment| %>
+
+  <li>
+    <h2><%= comment.author %></h2>
+
+  </li>
+
+<% end %>
+</ul>
