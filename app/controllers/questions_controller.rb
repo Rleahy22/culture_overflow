@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_filter current_user, only: [:edit, :update, :destroy]
+  before_filter :current_user, only: [:edit, :update, :destroy]
 
   def index
     @questions = Question.all
