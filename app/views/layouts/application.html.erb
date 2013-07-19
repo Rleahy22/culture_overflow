@@ -11,6 +11,9 @@
   <div class="login">
     <% if current_user %>
       <h3>Wilkommen, <%= current_user.username %></h3>  
+      <ul id="nav">
+        <li><%= link_to "Home", "/" %></li>
+      </ul>
     <% else %>
       <%= form_for User.new do |f| %>
         <%= f.label :username, "Username" %>
