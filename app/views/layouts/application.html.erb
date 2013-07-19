@@ -9,12 +9,13 @@
 <body>
   <div id="container">
   <div class="login">
+    
     <% if current_user %>
       <h3>Wilkommen, <%= current_user.username %></h3>  
       <ul id="nav">
         <li><%= link_to "Home", "/" %></li>
       </ul>
-    <% else %>
+    <% elsif show_nav_bar_login? %>
       <%= form_for User.new do |f| %>
         <%= f.label :username, "Username" %>
         <%= f.text_field :username %>
@@ -22,6 +23,7 @@
         <%= f.password_field :password %>
       <% end %>
     <% end %>
+
   </div>
   <%= yield %>
 </div>
