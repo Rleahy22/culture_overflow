@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_filter :check_login, only: [:edit, :update, :destroy]
+  before_filter current_user, only: [:edit, :update, :destroy]
 
   def index
     @questions = Question.all
@@ -10,11 +10,16 @@ class QuestionsController < ApplicationController
   end
   
   def new
-
+    if current_user
+      @question = Question.new()
+    else
+      redirect '/'
+    end
   end
 
   def create
     @question = Question.create(params[:question])
+    User.find(session[:user_id]).questions << @question
   end
   
   def edit
@@ -29,12 +34,4 @@ class QuestionsController < ApplicationController
     redirect_to root_url
   end
 
-  private
-
-  def check_login
-    @question = current_user.questions.find_by_id(params[:id])
-    if @question.nil?
-      redirect_to root_url
-    end
-  end
 end
