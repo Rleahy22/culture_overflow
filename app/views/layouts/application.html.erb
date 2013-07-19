@@ -15,14 +15,19 @@
       <ul id="nav">
         <li><%= link_to "Home", "/" %></li>
         <li><%= link_to "New Question", new_question_path %></li>
+        <li><%= link_to "Logout", logout_path %></li>
       </ul>
     <% elsif show_nav_bar_login? %>
-      <%= form_for User.new do |f| %>
-        <%= f.label :username, "Username" %>
-        <%= f.text_field :username %>
-        <%= f.label :password, "Password" %>
-        <%= f.password_field :password %>
-      <% end %>
+      <%= form_tag login_path do %>
+
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email] %>
+
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+
+      <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+    <% end %>
     <% end %>
 
   </div>
