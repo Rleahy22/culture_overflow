@@ -1,5 +1,9 @@
 CultureOverflow::Application.routes.draw do
+  root to: 'questions#index'
+  
   resources :users, except: :index
+
+  resources :questions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -11,3 +11,20 @@
  *= require_self
  *= require_tree .
  */
+
+#container {
+  width: 720px;
+  padding: 20px;
+  margin: auto;
+  background: white;
+}
+
+#nav {
+  list-style: none;
+}
+
+#nav li {
+  display: inline;
+  padding-right: 20px;
+}
+
