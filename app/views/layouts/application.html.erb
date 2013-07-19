@@ -7,7 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="login">
+  <% if current_user %>
+    <h3>Wilkommen, <%= current_user.username %></h3>  
+  <% else %>
+    <%= form_for User.new do |f| %>
+      <%= f.label :username, "Username" %>
+      <%= f.text_field :username %>
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password %>
+    <% end %>
+  <% end %>
+</div>
 <%= yield %>
 
 </body>
