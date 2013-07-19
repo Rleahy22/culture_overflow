@@ -1,6 +1,8 @@
+require 'bcrypt'
+
 class User < ActiveRecord::Base
   include BCrypt
-  attr_accessible :email, :password_hash, :username, :password
+  attr_accessible :email, :username, :password
 
   has_many :answers
   has_many :questions
@@ -28,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def self.verify(params)
-    @user = User.find_by_name(params[:name])
+    @user = User.find_by_name(params[:username])
     @user.password == params[:password] ? @user : nil
   end
 end

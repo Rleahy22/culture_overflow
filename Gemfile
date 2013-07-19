@@ -24,14 +24,13 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'twitter'
 gem 'oauth'
-gem 'bcrypt-ruby'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
