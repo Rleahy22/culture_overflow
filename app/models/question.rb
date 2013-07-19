@@ -3,5 +3,5 @@ class Question < ActiveRecord::Base
 
   has_many :answers
   has_many :question_votes
-  belongs_to :user
+  belongs_to :author, foreign_key: "user_id", class_name: "User"
 end
