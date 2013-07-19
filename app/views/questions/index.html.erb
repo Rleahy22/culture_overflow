@@ -2,7 +2,10 @@
   <h1>Questions</h1>
   <ul>
   <% @questions.each do |question| %>
-     <li><%= link_to question.title, question %></li>
+     <li>
+      <%= link_to question.title, question %><br>
+      <p><%= question.answers.count %> Answers</p>
+     </li>
   <% end %>
   </ul>
 </div>
