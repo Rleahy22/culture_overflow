@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def self.verify(params)
-    @user = User.find_by_name(params[:username])
+    @user = User.find_by_email(params[:email])
     @user.password == params[:password] ? @user : nil
   end
 end
