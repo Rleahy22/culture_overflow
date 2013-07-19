@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20130718160707) do
   create_table "answer_votes", :force => true do |t|
     t.integer  "answer_id"
     t.integer  "user_id"
+    t.integer  "upordown"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -36,20 +37,20 @@ ActiveRecord::Schema.define(:version => 20130718160707) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "question_votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "upordown"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "questions", :force => true do |t|
     t.integer  "user_id"
     t.text     "content"
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "questions_votes", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "question_id"
-    t.integer  "upordown"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

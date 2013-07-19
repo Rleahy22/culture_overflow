@@ -1,3 +1,7 @@
 class Question < ActiveRecord::Base
   attr_accessible :content, :title, :user_id
+
+  has_many :answers
+  has_many :question_votes
+  belongs_to :user
 end
