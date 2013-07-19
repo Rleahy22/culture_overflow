@@ -33,15 +33,15 @@ end
   Answer.all.sample.comments << comment  
 end
 
-# User.all.each do |user|
-#   Answer.all.each do |answer|
-#     AnswerVote.create(user_id: user.id, answer_id: answer.id, upordown: [+1, -1].sample) 
-#   end
-# end
+User.all.each do |user|
+  Answer.all.each do |answer|
+    AnswerVote.create(user_id: user.id, answer_id: answer.id, upordown: [1, -1].sample) 
+  end
+end
 
 User.all.each do |user|
   Question.all.each do |question|
-    QuestionVote.create(user_id: user.id, question_id: question.id, upordown: [+1, -1].sample) 
+    QuestionVote.create(user_id: user.id, question_id: question.id, upordown: [1, -1].sample) 
   end
 end
 
