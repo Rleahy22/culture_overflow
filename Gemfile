@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'twitter'
 gem 'oauth'
+gem 'bcrypt-ruby'
 
 group :development do
   gem 'better_errors'
