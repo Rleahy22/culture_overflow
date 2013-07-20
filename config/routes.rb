@@ -2,7 +2,8 @@ CultureOverflow::Application.routes.draw do
   root to: 'questions#index'
   
   resources :users, except: :index
-
+  resources :answers, except: :index
+  resources :comments, except: :index
   resources :questions
   resources :sessions, only: [:create, :destroy]
 
