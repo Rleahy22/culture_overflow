@@ -78,13 +78,32 @@
 }
 
 .q_list {
+  font-family: 'Kankin';
   margin-top: 7%;
+}
 
+.q_list ul{
+  list-style-type: none;
+}
+
+.q_list a{
+  margin-right: 1%;
+  font-size: x-large;
+  text-decoration: none;
+  color: #498377;
+  float: left;
+}
+
+.q_list p{
+  font-size: x-large;
+  margin: 0;
+  color: #8e5738;
+  float: left;
 }
 
 .gos img{
-  position: absolute;
-  bottom: -25%;
+  position: fixed;
+  bottom: -20%;
   height: 25%;
   width: auto;
 }
