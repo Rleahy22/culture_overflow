@@ -43,7 +43,7 @@
   width: 66%;
   height: 100%;
   text-align: center;
-  border: 2px solid #4DFFFF;
+  border: 2px solid #713a1b;
   background-color: #e4ce9c;
   height: 100%;
   background:image-url('blackkeys.jpg') no-repeat center center fixed; 
@@ -51,7 +51,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  opacity: .90;
+  opacity: .95;
 }
 
 .title h1{
@@ -79,7 +79,7 @@
 
 .q_list {
   margin-top: 7%;
-
+  font-family: 'Kankin';
 }
 
 .gos img{
