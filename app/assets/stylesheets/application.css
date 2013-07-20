@@ -43,16 +43,17 @@
   top: 7%;
   width: 66%;
   height: 100%;
+  padding-bottom: 3%;
   text-align: center;
   border: 2px solid #713a1b;
   background-color: #e4ce9c;
   height: 100%;
-  background:image-url('blackkeys.jpg') no-repeat center center fixed; 
+  background-image:url('tan-sponged-background.png');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  opacity: .95;
+  opacity: .9;
 }
 
 .title h1{
@@ -71,6 +72,10 @@
   color: #8e5738;
   -webkit-transform:rotate(-10deg);
   text-shadow: 2px 2px #498377;
+}
+
+.poster form{
+  margin-top: 5%;
 }
 
 .nav {
@@ -119,3 +124,5 @@
   height: 25%;
   width: auto;
 }
+
+
