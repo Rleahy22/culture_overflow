@@ -5,6 +5,10 @@ CultureOverflow::Application.routes.draw do
   resources :answers, except: :index
   resources :comments, except: :index
   resources :questions
+  resources :sessions, only: [:create, :destroy]
+
+  post '/login' => 'static_pages#login'
+  get '/logout' => 'static_pages#logout'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

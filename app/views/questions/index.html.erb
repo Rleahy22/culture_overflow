@@ -3,7 +3,7 @@
   <ul>
   <% @questions.each do |question| %>
      <li>
-      <%= link_to question.title, question %><br>
+      <%= link_to question.title, question %>
       <p><%= question.answers.count %> Answers</p>
      </li>
   <% end %>

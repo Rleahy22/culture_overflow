@@ -7,26 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="container">
   <div class="login">
-    
-    <% if current_user %>
+    <div class="nav">
+      <% if current_user %>
       <h3>Wilkommen, <%= current_user.username %></h3>  
       <ul id="nav">
         <li><%= link_to "Home", "/" %></li>
         <li><%= link_to "New Question", new_question_path %></li>
+        <li><%= link_to "Logout", logout_path %></li>
       </ul>
-    <% elsif show_nav_bar_login? %>
-      <%= form_for User.new do |f| %>
-        <%= f.label :username, "Username" %>
-        <%= f.text_field :username %>
-        <%= f.label :password, "Password" %>
-        <%= f.password_field :password %>
-      <% end %>
-    <% end %>
+      <% elsif show_nav_bar_login? %>
+      <%= form_tag login_path do %>
 
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email] %>
+
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+
+      <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+      <% end %>
+      <% end %>
+    </div>
   </div>
-  <%= yield %>
-</div>
+  <div class="poster">
+    <div class="title">
+      <h1>*SONIC*OVERFLOW*</h1>
+      <h2>*YOUR MUSIC QUESTIONS*</h2>
+      <h2>*ANSWERED*</h2>
+    </div>
+    <%= yield %>
+  </div>
+  <!-- <div id="container"> -->
+  <!-- </div> -->
+  <div class="gos">
+    <%= image_tag("gosling.png") %>
+  </div>
 </body>
 </html>

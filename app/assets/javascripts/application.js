@@ -13,3 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(document).ready(function(){
+  $(".gos img").animate({bottom: '+=200'}, 700);
+  $(".gos img").animate({bottom: '-=200'}, 700);
+});
