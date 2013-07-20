@@ -17,7 +17,7 @@
           <li><%= link_to "Logout", logout_path %></li>
         </ul>
       <% elsif show_nav_bar_login? %>
-        <%= form_tag login_path do %>
+        <%= form_tag login_path, html: {class: "login_form"} do %>
 
           <%= label_tag :email %>
           <%= text_field_tag :email, params[:email] %>
