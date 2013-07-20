@@ -1,8 +1,22 @@
-<%= link_to "Update This Question", edit_question_path(@question.id) %>
+<%= link_to "Dude, Update This", edit_question_path(@question.id) %>
+
+<%= link_to "Brah, Delete", @question, method: "delete" %>
 
 <h1><%= @question.title %></h1>
 
 <h2>User: <%= @question.author.username %></h2>
 
 <p><%= @question.content %></p>
-
+<%= render "/answers/new_answer", :locals => {question: @question} %>
+<ul>
+<% @question.answers.each do |answer| %>
+  <li>
+    <h3><%= answer.author.username %> writes:</h3>
+    <p><%= answer.content %></p>
+    <% answer.comments.each do |comment| %>
+      <h4><%= comment.author.username %> responds:</h4>
+      <p><%= comment.content %></p>
+    <% end %>
+  </li>
+<% end %>
+</ul>
