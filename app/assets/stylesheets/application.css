@@ -12,11 +12,20 @@
  *= require_tree .
  */
 
+ @font-face {
+  font_family: 'Kankin';
+  src:url(Kankin.otf);
+  font-weight: normal;
+  font-style: normal;
+ }
+
 #container {
   width: 720px;
   padding: 20px;
   margin: auto;
   background: white;
+  border: 1px solid gray;
+  text-align: center;
 }
 
 #nav {
@@ -28,3 +37,54 @@
   padding-right: 20px;
 }
 
+.poster {
+  position: absolute;
+  left: 15%;
+  width: 66%;
+  height: 100%;
+  text-align: center;
+  border: 2px solid #4DFFFF;
+  background-color: #e4ce9c;
+  height: 100%;
+  background:image-url('blackkeys.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: .90;
+}
+
+.title h1{
+  font-size: 700%;
+  font-family: 'Kankin';
+  color: #498377;
+  -webkit-transform:rotate(-10deg);
+  margin-bottom: 0;
+  text-shadow: 2px 2px #8e5738;
+}
+
+.title h2{
+  margin: 0;
+  font-size: 300%;
+  font-family: 'Kankin';
+  color: #8e5738;
+  -webkit-transform:rotate(-10deg);
+  text-shadow: 2px 2px #498377;
+}
+
+.nav {
+  position: absolute;
+  right: 1%;
+}
+
+.q_list {
+  margin-top: 7%;
+
+}
+
+.gos img{
+  position: absolute;
+  bottom: -25%;
+  height: 25%;
+  width: auto;
+}
