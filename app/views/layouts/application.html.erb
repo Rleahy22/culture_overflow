@@ -10,24 +10,24 @@
   <div class="login">
     <div class="nav">
       <% if current_user %>
-      <h3>Wilkommen, <%= current_user.username %></h3>  
-      <ul id="nav">
-        <li><%= link_to "Home", "/" %></li>
-        <li><%= link_to "New Question", new_question_path %></li>
-        <li><%= link_to "Logout", logout_path %></li>
-      </ul>
+        <h3>Wilkommen, <%= current_user.username %></h3>  
+        <ul id="nav">
+          <li><%= link_to "Home", "/" %></li>
+          <li><%= link_to "New Question", new_question_path %></li>
+          <li><%= link_to "Logout", logout_path %></li>
+        </ul>
       <% elsif show_nav_bar_login? %>
-      <%= form_tag login_path do %>
+        <%= form_tag login_path do %>
 
-      <%= label_tag :email %>
-      <%= text_field_tag :email, params[:email] %>
+          <%= label_tag :email %>
+          <%= text_field_tag :email, params[:email] %>
 
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
 
-      <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
-      <% end %>
-      <%= link_to "Signup", new_user_path %>
+          <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+        <% end %>
+        <%= link_to "Don't Have An Account, Bro?  Signup Today!", new_user_path %>
       <% end %>
     </div>
   </div>
