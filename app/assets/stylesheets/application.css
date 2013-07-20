@@ -40,7 +40,7 @@
 .poster {
   position: absolute;
   left: 15%;
-  top: 5%;
+  top: 7%;
   width: 66%;
   height: 100%;
   text-align: center;
@@ -76,6 +76,16 @@
 .nav {
   position: absolute;
   right: 1%;
+}
+
+.nav a{
+  font-family: 'Kankin';
+  position: absolute;
+  right: 1%;
+  text-decoration: none;
+  font-size: x-large;
+  color: #8e5738;
+  text-shadow: 1px 1px #498377;
 }
 
 .q_list {
