@@ -74,19 +74,40 @@
   text-shadow: 2px 2px #498377;
 }
 
+.poster .signup{
+  position: absolute;
+  left:20%;
+  margin: 7%;
+  font-family: 'Kankin';
+}
+
+.signup input, label{
+  margin: 2%;
+  font-size: 200%;
+  float: left;
+  clear: both;
+}
+
 .poster form{
   margin-top: 5%;
 }
 
 .nav {
   position: absolute;
-  right: 1%;
+  right: 0%;
+}
+
+.nav h3{
+  font-size: 200%;
+  font-family: 'Kankin';
+  color: #498377;
+  margin: 2% 4% 1% 1%;
+  text-align: right;
 }
 
 .nav a{
+  display: inline;
   font-family: 'Kankin';
-  position: absolute;
-  right: 1%;
   text-decoration: none;
   font-size: x-large;
   color: #8e5738;

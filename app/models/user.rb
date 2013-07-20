@@ -2,7 +2,7 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   include BCrypt
-  attr_accessible :email, :username, :password_hash
+  attr_accessible :email, :username, :password_hash, :password
 
   has_many :answers
   has_many :questions

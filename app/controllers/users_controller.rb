@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.create(params[:user])
+    session[:id] = @user.id
     redirect_to root_path
   end
   
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = find(params[:id])
-    if @session[:user] == @user.id
+    if @session[:id] == @user.id
       @user.destroy
     end
     redirect_to root_path
