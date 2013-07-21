@@ -29,9 +29,6 @@ class QuestionsController < ApplicationController
   end
   
   def update
-    p params
-    p params[:id]
-    p "******"
     @question = Question.find(params[:id])
     @question.update_attributes(params[:question])
     redirect_to @question
