@@ -25,7 +25,6 @@
   margin: auto;
   background: white;
   border: 1px solid gray;
-  text-align: center;
 }
 
 #nav {
@@ -57,7 +56,7 @@
 }
 
 .title h1{
-  font-size: 700%;
+  font-size: 4em;
   font-family: 'Kankin';
   color: #498377;
   -webkit-transform:rotate(-10deg);
@@ -67,7 +66,7 @@
 
 .title h2{
   margin: 0;
-  font-size: 300%;
+  font-size: 2em;
   font-family: 'Kankin';
   color: #8e5738;
   -webkit-transform:rotate(-10deg);
@@ -128,14 +127,12 @@
   font-size: x-large;
   text-decoration: none;
   color: #498377;
-  float: left;
 }
 
 .q_list p{
   font-size: x-large;
   margin: 0;
   color: #8e5738;
-  float: left;
   font-family: 'Kankin';
 }
 
