@@ -7,7 +7,9 @@
 <h2>User: <%= @question.author.username %></h2>
 
 <p><%= @question.content %></p>
-<%= link_to "Edit This Question", edit_question_path(@question.id) %>
+<% if @question.author.id == session[:user_id]  %>
+<%= link_to "Edit This Question", edit_question_path(@question.id) %><br><br>
+<% end %>
 <%= link_to "Answer This Question", @answer, :class => 'answerformlink' %>
 
 <%= render "/answers/new_answer", :locals => {question: @question} %>
