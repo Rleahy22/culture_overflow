@@ -1,4 +1,4 @@
-<%= link_to "Dude, Update This", edit_question_path(@question.id) %>
+<%= link_to "Dude, Update", edit_question_path(@question.id) %>
 
 <%= link_to "Brah, Delete", @question, method: "delete" %>
 
@@ -7,16 +7,23 @@
 <h2>User: <%= @question.author.username %></h2>
 
 <p><%= @question.content %></p>
+<% if @question.author.id == session[:user_id]  %>
+<%= link_to "Edit This Question", edit_question_path(@question.id) %><br><br>
+<% end %>
+<%= link_to "Answer This Question", @answer, :class => 'answerformlink' %>
+
 <%= render "/answers/new_answer", :locals => {question: @question} %>
 <ul>
 <% @question.answers.each do |answer| %>
   <li>
-    <h3><%= answer.author.username %> writes:</h3>
+    <h3>On <%= answer.created_at.to_datetime.strftime("%b %d %Y") %>, <%= answer.author.username %> wrote:</h3>
     <p><%= answer.content %></p>
     <% answer.comments.each do |comment| %>
-      <h4><%= comment.author.username %> responds:</h4>
+      <h4>On <%= comment.created_at.to_datetime.strftime("%b %d %Y") %>, <%= comment.author.username %> responded:</h4>
       <p><%= comment.content %></p>
     <% end %>
+    <%= link_to "Comment On This Answer", @comment, :class => 'commentformlink' %>
+    <%= render "/comments/new_comment", :locals => {answer: answer} %>
   </li>
 <% end %>
 </ul>

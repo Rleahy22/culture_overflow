@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.create(params[:comment])
     User.find(session[:user_id]).comments << @comment
-    redirect_to @comment
+    @answer = Answer.find(params[:comment][:answer_id]).comments << @comment
+    redirect_to @comment.answer.question
   end
 
   def destroy
@@ -19,13 +20,9 @@ class CommentsController < ApplicationController
   end
 
   def new
-    if current_user
-      @comment = Comment.new()
-    else
-      redirect '/'
-    end
+    @comment = Comment.new(content: "default")
   end
-
+    
   def show
     @comment = Comment.find(params[:id])
   end

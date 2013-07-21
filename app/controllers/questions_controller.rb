@@ -1,12 +1,14 @@
 class QuestionsController < ApplicationController
-  before_filter :current_user, only: [:edit, :update, :destroy]
+  
+  before_filter :find_question_by_id, only: [:edit, :update, :destroy, :show]
+  before_filter :verify_authorship, only: [:edit, :update, :destroy]
 
   def index
     @questions = Question.all
   end
   
   def show
-    @question = Question.find(params[:id])
+    @answer = Answer.new()
   end
   
   def new
@@ -24,19 +26,33 @@ class QuestionsController < ApplicationController
   end
   
   def edit
-    @question = Question.find(params[:id])
   end
   
   def update
-    @question = Question.find(params[:id])
     @question.update_attributes(params[:question])
-    redirect_to root_path
+    redirect_to @question
   end
   
   def destroy
-    @question = Question.find(params[:id])
     @question.destroy
     redirect_to root_url
+  end
+
+  def current_user
+    @user ||= User.find_by_id(session[:id])
+  end
+
+  private
+
+  def verify_authorship
+    @question = Question.find_by_id(params[:id])
+    unless current_user.id == @question.author.id
+      redirect_to question_path
+    end
+  end
+
+  def find_question_by_id
+    @question = Question.find(params[:id])
   end
 
 end
