@@ -16,4 +16,11 @@
 $(document).ready(function(){
   $(".gos img").animate({bottom: '+=200'}, 700);
   $(".gos img").animate({bottom: '-=200'}, 700);
+  $(".answerformlink").show();
+  $(".answerform").hide();
+  $(".answerformlink").click(function(event) {
+    event.preventDefault();
+    $(".answerform").show();
+    $(".answerformlink").hide();
+  });
 });
