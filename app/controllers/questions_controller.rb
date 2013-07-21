@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_filter :current_user, only: [:edit, :update, :destroy]
+  # before_filter :current_user, only: [:edit, :update, :destroy]
 
   def index
     @questions = Question.all
@@ -29,9 +29,12 @@ class QuestionsController < ApplicationController
   end
   
   def update
+    p params
+    p params[:id]
+    p "******"
     @question = Question.find(params[:id])
     @question.update_attributes(params[:question])
-    redirect_to root_path
+    redirect_to @question
   end
   
   def destroy
