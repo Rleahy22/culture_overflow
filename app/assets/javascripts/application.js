@@ -23,4 +23,11 @@ $(document).ready(function(){
     $(".answerform").show();
     $(".answerformlink").hide();
   });
+  $(".commentformlink").show();
+  $(".commentform").hide();
+  $(".commentformlink").click(function(event) {
+    event.preventDefault();
+    $(this).parent().children(".commentform").show();
+    $(this).hide();
+  });
 });
