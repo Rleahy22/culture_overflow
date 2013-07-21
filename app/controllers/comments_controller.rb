@@ -3,13 +3,9 @@ class CommentsController < ApplicationController
   before_filter :current_user, only: [:edit, :update, :destroy]
 
   def create
-    p params
-    p "HIIII"
     @comment = Comment.create(params[:comment])
     User.find(session[:user_id]).comments << @comment
-    p @comment
-    @answer = Answer.find(params[:comment][:answer_id])
-    @answer.comments << @comment
+    @answer = Answer.find(params[:comment][:answer_id]).comments << @comment
     redirect_to @comment.answer.question
   end
 
@@ -24,10 +20,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-    p "Saturday *****"
-    p params
-    @comment = Comment.create()
-    redirect_to @question
+    @comment = Comment.new(content: "default")
   end
     
   def show
