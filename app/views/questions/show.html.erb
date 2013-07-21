@@ -7,7 +7,7 @@
 <h2>User: <%= @question.author.username %></h2>
 
 <p><%= @question.content %></p>
-<%= link_to "Answer This Question", answers_path, :class => 'answerformlink' %>
+<%= link_to "Answer This Question", @answer, :class => 'answerformlink' %>
 
 <%= render "/answers/new_answer", :locals => {question: @question} %>
 <ul>
@@ -16,9 +16,11 @@
     <h3>On <%= answer.created_at.to_datetime.strftime("%b %d %Y") %>, <%= answer.author.username %> wrote:</h3>
     <p><%= answer.content %></p>
     <% answer.comments.each do |comment| %>
-      <h4><%= comment.author.username %> responds:</h4>
+      <h4>On <%= comment.created_at.to_datetime.strftime("%b %d %Y") %>, <%= comment.author.username %> responded:</h4>
       <p><%= comment.content %></p>
     <% end %>
+    <%= link_to "Comment On This Answer", @comment, :class => 'commentformlink' %>
+    <%= render "/comments/new_comment", :locals => {answer: answer} %>
   </li>
 <% end %>
 </ul>

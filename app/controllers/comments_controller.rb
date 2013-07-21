@@ -3,9 +3,14 @@ class CommentsController < ApplicationController
   before_filter :current_user, only: [:edit, :update, :destroy]
 
   def create
+    p params
+    p "HIIII"
     @comment = Comment.create(params[:comment])
     User.find(session[:user_id]).comments << @comment
-    redirect_to @comment
+    p @comment
+    @answer = Answer.find(params[:comment][:answer_id])
+    @answer.comments << @comment
+    redirect_to @comment.answer.question
   end
 
   def destroy
@@ -19,13 +24,12 @@ class CommentsController < ApplicationController
   end
 
   def new
-    if current_user
-      @comment = Comment.new()
-    else
-      redirect '/'
-    end
+    p "Saturday *****"
+    p params
+    @comment = Comment.create()
+    redirect_to @question
   end
-
+    
   def show
     @comment = Comment.find(params[:id])
   end
