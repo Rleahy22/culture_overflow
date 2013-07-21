@@ -1,13 +1,10 @@
-<%= link_to "Dude, Update", edit_question_path(@question.id) %>
-
-<%= link_to "Brah, Delete", @question, method: "delete" %>
-
 <h1><%= @question.title %></h1>
 
 <h2>User: <%= @question.author.username %></h2>
 
 <p><%= @question.content %></p>
 <% if @question.author.id == session[:user_id]  %>
+<%= link_to "Delete This Question", @question, method: "delete" %><br><br>
 <%= link_to "Edit This Question", edit_question_path(@question.id) %><br><br>
 <% end %>
 <%= link_to "Answer This Question", @answer, :class => 'answerformlink' %>
