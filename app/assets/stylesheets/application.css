@@ -143,4 +143,41 @@
   width: auto;
 }
 
+#questiontext, #answertext {
+  width: 88%;
+  display: inline-block;
+}
 
+#upvote input[type="submit"] {
+  background-image:url('uparrow.png');
+  width: 64px;
+  height: 64px;
+  margin: auto;
+  display: inline-block;
+  border: 0px;
+}
+
+#downvote input[type="submit"] {
+  background-image:url('downarrow.png');
+  width: 64px;
+  height: 64px;
+  margin: auto;
+  display: inline-block;
+  border: 0px;
+}
+
+#votediv {
+  position: static;
+  top:0px;
+  width: 10%;
+  display: inline-block;
+}
+
+#votecount {
+  margin:0;
+  text-align: center;
+}
+
+#questiontitle {
+  margin-top: 100px;
+}

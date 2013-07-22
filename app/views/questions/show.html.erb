@@ -1,8 +1,22 @@
-<h1><%= @question.title %></h1>
+<h1 id="questiontitle"><%= @question.title %></h1>
 
 <h2>User: <%= @question.author.username %></h2>
-
-<p><%= @question.content %></p>
+<div id="votediv">
+  <%= form_for QuestionVote.new, html: {id: "upvote"} do |f| %>
+    <%= f.hidden_field :upordown, value: 1 %>
+    <%= f.hidden_field :question_id, value: @question.id %>
+    <%= f.submit "" %>
+  <% end %>
+  <h2 id="votecount"><%= @question.votecount %></h2>
+  <%= form_for QuestionVote.new, html: {id: "downvote"} do |f| %>
+    <%= f.hidden_field :upordown, value: -1 %>
+    <%= f.hidden_field :question_id, value: @question.id %>
+    <%= f.submit "" %>
+  <% end %>
+</div>
+<div id="questiontext">
+  <p><%= @question.content %></p>
+</div>
 <% if @question.author.id == session[:user_id]  %>
 <%= link_to "Delete This Question", @question, method: "delete" %><br><br>
 <%= link_to "Edit This Question", edit_question_path(@question.id) %><br><br>
@@ -11,14 +25,23 @@
 
 <%= render "/answers/new_answer", :locals => {question: @question} %>
 <ul>
-<% @question.answers.each do |answer| %>
+<% @question.answers.sort.reverse.each do |answer| %>
   <li>
     <h3>On <%= answer.created_at.to_datetime.strftime("%b %d %Y") %>, <%= answer.author.username %> wrote:</h3>
-    <p><%= answer.content %></p>
-    <% answer.comments.each do |comment| %>
-      <h4>On <%= comment.created_at.to_datetime.strftime("%b %d %Y") %>, <%= comment.author.username %> responded:</h4>
-      <p><%= comment.content %></p>
-    <% end %>
+    <div id="voteandanswer">
+      <div id="votediv">
+        <div id="upvote"></div>
+        <h2 id="votecount"><%= answer.votecount %></h2>
+        <div id="downvote"></div>
+      </div>
+      <div id="answertext">
+      <p><%= answer.content %></p>
+      <% answer.comments.each do |comment| %>
+        <h4>On <%= comment.created_at.to_datetime.strftime("%b %d %Y") %>, <%= comment.author.username %> responded:</h4>
+        <p><%= comment.content %></p>
+      <% end %>
+      </div>
+    </div>
     <%= link_to "Comment On This Answer", @comment, :class => 'commentformlink' %>
     <%= render "/comments/new_comment", :locals => {answer: answer} %>
   </li>
