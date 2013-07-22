@@ -4,6 +4,8 @@ CultureOverflow::Application.routes.draw do
   resources :users, except: :index
   resources :answers, except: :index
   resources :comments, except: :index
+  resources :question_votes
+  resources :answer_votes
   resources :questions
   resources :sessions, only: [:create, :destroy]
 
