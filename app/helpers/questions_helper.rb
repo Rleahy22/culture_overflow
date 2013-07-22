@@ -1,9 +1,11 @@
 module QuestionsHelper 
 
-  def verify_authorship
-     unless current_user.id == Question.find_by_id(params[:id]).author.id
-      redirect_to @question
-     end
+  def votecount
+    question_votes.where(upordown: 1).count - question_votes.where(upordown: -1).count
   end
 
+  def <=>(other)
+    self.votecount<=>other.votecount
+  end
+  
 end
