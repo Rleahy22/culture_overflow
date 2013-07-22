@@ -30,9 +30,17 @@
     <h3>On <%= answer.created_at.to_datetime.strftime("%b %d %Y") %>, <%= answer.author.username %> wrote:</h3>
     <div id="voteandanswer">
       <div id="votediv">
-        <div id="upvote"></div>
+        <%= form_for AnswerVote.new, html: {id: "upvote"} do |f| %>
+          <%= f.hidden_field :upordown, value: 1 %>
+          <%= f.hidden_field :answer_id, value: answer.id %>
+          <%= f.submit "" %>
+        <% end %>
         <h2 id="votecount"><%= answer.votecount %></h2>
-        <div id="downvote"></div>
+        <%= form_for AnswerVote.new, html: {id: "downvote"} do |f| %>
+          <%= f.hidden_field :upordown, value: -1 %>
+          <%= f.hidden_field :answer_id, value: answer.id %>
+          <%= f.submit "" %>
+        <% end %>      
       </div>
       <div id="answertext">
       <p><%= answer.content %></p>
