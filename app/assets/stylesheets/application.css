@@ -117,6 +117,8 @@
 .q_list {
   font-family: 'Kankin';
   margin-top: 7%;
+  text-shadow: 1px 1px #8e5738;
+  font-weight: bolder;
 }
 
 .q_list ul{
@@ -127,13 +129,13 @@
   margin-right: 1%;
   font-size: x-large;
   text-decoration: none;
-  color: #498377;
+  color: #2C4F47;
 }
 
 .q_list p{
   font-size: x-large;
   margin: 0;
-  color: #8e5738;
+  color: #553422;
   float: left;
   font-family: 'Kankin';
 }
