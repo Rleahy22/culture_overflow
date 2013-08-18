@@ -59,9 +59,10 @@
   font-size: 700%;
   font-family: 'Kankin';
   color: #498377;
-  -webkit-transform:rotate(-10deg);
+  -webkit-transform:rotate(-9deg);
   margin-bottom: 0;
   text-shadow: 2px 2px #8e5738;
+  word-spacing: -25px;
 }
 
 .title h2{
@@ -69,7 +70,7 @@
   font-size: 300%;
   font-family: 'Kankin';
   color: #8e5738;
-  -webkit-transform:rotate(-10deg);
+  -webkit-transform:rotate(-9deg);
   text-shadow: 2px 2px #498377;
 }
 
