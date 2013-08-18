@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.create(params[:answer])
-    User.find(session[:user_id]).answers << @answer
+    User.find(session[:id]).answers << @answer
     @question = Question.find(params[:answer][:question_id])
     @question.answers << @answer
     redirect_to @question

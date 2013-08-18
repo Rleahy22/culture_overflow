@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.create(params[:question])
-    User.find(session[:user_id]).questions << @question
+    User.find(session[:id]).questions << @question
     redirect_to @question
   end
   

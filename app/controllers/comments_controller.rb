@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(params[:comment])
-    User.find(session[:user_id]).comments << @comment
+    User.find(session[:id]).comments << @comment
     @answer = Answer.find(params[:comment][:answer_id]).comments << @comment
     redirect_to @comment.answer.question
   end

@@ -7,7 +7,7 @@ class AnswerVotesController < ApplicationController
   def create
     p params
     p "asterisk"
-    @user = User.find(session[:user_id])
+    @user = User.find(session[:id])
     @answer = Answer.find(params[:answer_vote][:answer_id])
     @question = @answer.question
     if @user.answer_votes.where(answer_id: @answer.id).count <= 0
