@@ -1,1 +1,1 @@
-web: bundle exec unicorn -p $PORT -E $RACK_ENV
+echo "web: bundle exec rails server thin -p \$PORT -e \$RACK_ENV" > Procfile
