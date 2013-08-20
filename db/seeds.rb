@@ -10,7 +10,7 @@
   firstname = Faker::Name.first_name
   lastname = Faker::Name.last_name
   email = Faker::Internet.email
-  User.create(username: "#{firstname+lastname}", password_hash: "password", email: email)
+  User.create(username: "#{firstname+lastname}", password: "password", email: email)
 end
 
 20.times do
